@@ -9,7 +9,9 @@ public class DateofengagementConverter extends BaseConveter {
 
    public static com.servinglynk.hmis.warehouse.model.v2014.Dateofengagement modelToEntity (Dateofengagement model ,com.servinglynk.hmis.warehouse.model.v2014.Dateofengagement entity) {
        if(entity==null) entity = new com.servinglynk.hmis.warehouse.model.v2014.Dateofengagement();
+       if(model.getDateofengagementId()!=null)
        entity.setId(model.getDateofengagementId());
+       if(model.getDateofengagement()!=null)
        entity.setDateofengagement(model.getDateofengagement().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime());
        return entity;    
    }
@@ -17,9 +19,12 @@ public class DateofengagementConverter extends BaseConveter {
 
    public static Dateofengagement entityToModel (com.servinglynk.hmis.warehouse.model.v2014.Dateofengagement entity) {
        Dateofengagement model = new Dateofengagement();
-       model.setDateofengagementId(entity.getId());
+       if(entity.getId()!=null)
+       model.setDateofengagementId(entity.getId());  
+       if(entity.getDateofengagement()!=null){
        Instant instant = entity.getDateofengagement().atZone(ZoneId.systemDefault()).toInstant();
        model.setDateofengagement(Date.from(instant));
+       }
        copyBeanProperties(entity, model);
        return model;
    }
