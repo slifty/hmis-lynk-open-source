@@ -24,7 +24,7 @@ public class InventoryConverter extends BaseConveter {
    public static Inventory entityToModel (com.servinglynk.hmis.warehouse.model.v2014.Inventory entity) {
        Inventory model = new Inventory();
        model.setInventoryId(entity.getId());
-       model.setAvailabilty(entity.getAvailabilty().name());
+       model.setAvailabilty(entity.getAvailabilty().getValue());
        if(entity.getBedinventory() != null)   model.setBedinventory(entity.getBedinventory().getId());
        model.setBedtype(Integer.parseInt(entity.getBedtype().getValue()));
        model.setHmisparticipatingbeds(entity.getHmisparticipatingbeds());

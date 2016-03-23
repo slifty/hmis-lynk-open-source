@@ -333,7 +333,7 @@ public class ClientsController extends ControllerBase {
 	   
 	// Disabilities API Start
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilitiess",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilities",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_DISABILITIES",checkTrustedApp=true,checkSessionToken=true)
 	   public Disabilities createDisabilities(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody Disabilities disabilities,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -344,7 +344,7 @@ public class ClientsController extends ControllerBase {
 	       return returnDisabilities;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilitiess/{disabilitiesid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilities/{disabilitiesid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_DISABILITIES",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateDisabilities(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "disabilitiesid" ) UUID disabilitiesId,@RequestBody Disabilities disabilities,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -352,7 +352,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getDisabilitiesService().updateDisabilities(disabilities,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilitiess/{disabilitiesid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilities/{disabilitiesid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_DISABILITIES",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteDisabilities(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "disabilitiesid" ) UUID disabilitiesId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -363,7 +363,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilitiess/{disabilitiesid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilities/{disabilitiesid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_DISABILITIES_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public Disabilities getDisabilitiesById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "disabilitiesid" ) UUID disabilitiesId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -371,7 +371,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getDisabilitiesService().getDisabilitiesById(disabilitiesId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilitiess",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/disabilities",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_DISABILITIES",checkTrustedApp=true,checkSessionToken=true)
 	   public DisabilitiesList getAllEnrollmentDisabilitiess(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -458,7 +458,7 @@ public class ClientsController extends ControllerBase {
 	   // Exit Plans Actions API Start
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPlansActionss",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitplansactions",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_EXITPLANSACTIONS",checkTrustedApp=true,checkSessionToken=true)
 	   public ExitPlansActions createExitPlansActions(@PathVariable("clientid") UUID clientId, 
 			   @PathVariable("enrollmentid") UUID enrollmentId ,
@@ -472,7 +472,7 @@ public class ClientsController extends ControllerBase {
 	         return returnExitPlansActions;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPlansActionss/{exitPlansActionsid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitplansactions/{exitPlansActionsid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_EXITPLANSACTIONS",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateExitPlansActions(@PathVariable("clientid") UUID clientId, 
 			   @PathVariable("enrollmentid") UUID enrollmentId ,
@@ -483,7 +483,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getExitPlansActionsService().updateExitPlansActions(exitPlansActions,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPlansActionss/{exitPlansActionsid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitplansactions/{exitPlansActionsid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_EXITPLANSACTIONS",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteExitPlansActions(@PathVariable("clientid") UUID clientId,
 			   @PathVariable("enrollmentid") UUID enrollmentId ,
@@ -497,7 +497,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPlansActionss/{exitPlansActionsid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitplansactions/{exitPlansActionsid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_EXITPLANSACTIONS_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public ExitPlansActions getExitPlansActionsById(@PathVariable("clientid") UUID clientId,
 			   @PathVariable("enrollmentid") UUID enrollmentId ,
@@ -509,7 +509,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getExitPlansActionsService().getExitPlansActionsById(exitPlansActionsId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitPlansActionss",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/exitplansactions",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_EXIT_EXITPLANSACTIONS",checkTrustedApp=true,checkSessionToken=true)
 	   public ExitPlansActionsList getAllEnrollmentExitPlansActionss(@PathVariable("clientid") UUID clientId,
 			   @PathVariable("enrollmentid") UUID enrollmentId ,
@@ -523,14 +523,14 @@ public class ClientsController extends ControllerBase {
 	         serviceFactory.getClientService().getClientById(clientId); 
 	         serviceFactory.getEnrollmentService().getEnrollmentByClientIdAndEnrollmentId(enrollmentId, clientId); 
 	         serviceFactory.getExitService().getExitById(exitId);
-	        return serviceFactory.getExitPlansActionsService().getAllExitExitPlansActionss(enrollmentId,startIndex,maxItems); 
+	        return serviceFactory.getExitPlansActionsService().getAllExitExitPlansActionss(exitId,startIndex,maxItems); 
 	   }
 
 	   
 	   // Family Reunification API start
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyReunifications",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyreunifications",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_FAMILYREUNIFICATION",checkTrustedApp=true,checkSessionToken=true)
 	   public FamilyReunification createFamilyReunification(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId,@RequestBody FamilyReunification familyReunification,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -541,7 +541,7 @@ public class ClientsController extends ControllerBase {
 	         return returnFamilyReunification;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyReunifications/{familyReunificationid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyreunifications/{familyReunificationid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_FAMILYREUNIFICATION",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateFamilyReunification(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "familyReunificationid" ) UUID familyReunificationId,@RequestBody FamilyReunification familyReunification,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -549,7 +549,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getFamilyReunificationService().updateFamilyReunification(familyReunification,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyReunifications/{familyReunificationid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyreunifications/{familyReunificationid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_FAMILYREUNIFICATION",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteFamilyReunification(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable("exitid") UUID exitId, @PathVariable( "familyReunificationid" ) UUID familyReunificationId,
@@ -562,7 +562,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyReunifications/{familyReunificationid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyreunifications/{familyReunificationid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_FAMILYREUNIFICATION_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public FamilyReunification getFamilyReunificationById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "familyReunificationid" ) UUID familyReunificationId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -571,7 +571,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getFamilyReunificationService().getFamilyReunificationById(familyReunificationId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyReunifications",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/familyreunifications",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_EXIT_FAMILYREUNIFICATION",checkTrustedApp=true,checkSessionToken=true)
 	   public FamilyReunifications getAllEnrollmentFamilyReunifications(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable("exitid") UUID exitId, 
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -583,13 +583,13 @@ public class ClientsController extends ControllerBase {
 	         serviceFactory.getClientService().getClientById(clientId); 
 	         serviceFactory.getEnrollmentService().getEnrollmentByClientIdAndEnrollmentId(enrollmentId, clientId); 
 	         serviceFactory.getExitService().getExitById(exitId);
-	        return serviceFactory.getFamilyReunificationService().getAllEnrollmentFamilyReunifications(enrollmentId,startIndex,maxItems); 
+	        return serviceFactory.getFamilyReunificationService().getAllEnrollmentFamilyReunifications(exitId,startIndex,maxItems); 
 	   }
 	   
 	   
 	   // Housing Assessment Dispositions API start
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingAssessmentDispositions",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingassessmentdispositions",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_HOUSINGASSESSMENTDISPOSITION",checkTrustedApp=true,checkSessionToken=true)
 	   public HousingAssessmentDisposition createHousingAssessmentDisposition(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId,@RequestBody HousingAssessmentDisposition housingAssessmentDisposition,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -600,7 +600,7 @@ public class ClientsController extends ControllerBase {
 	         return returnHousingAssessmentDisposition;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingAssessmentDispositions/{housingAssessmentDispositionid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingassessmentdispositions/{housingAssessmentDispositionid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_HOUSINGASSESSMENTDISPOSITION",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateHousingAssessmentDisposition(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "housingAssessmentDispositionid" ) UUID housingAssessmentDispositionId,@RequestBody HousingAssessmentDisposition housingAssessmentDisposition,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -608,7 +608,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getHousingAssessmentDispositionService().updateHousingAssessmentDisposition(housingAssessmentDisposition,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingAssessmentDispositions/{housingAssessmentDispositionid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingassessmentdispositions/{housingAssessmentDispositionid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_HOUSINGASSESSMENTDISPOSITION",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteHousingAssessmentDisposition(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , 
 			   @PathVariable("exitid") UUID exitId, @PathVariable( "housingAssessmentDispositionid" ) UUID housingAssessmentDispositionId,
@@ -621,7 +621,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingAssessmentDispositions/{housingAssessmentDispositionid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingassessmentdispositions/{housingAssessmentDispositionid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_HOUSINGASSESSMENTDISPOSITION_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public HousingAssessmentDisposition getHousingAssessmentDispositionById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "housingAssessmentDispositionid" ) UUID housingAssessmentDispositionId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -630,7 +630,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getHousingAssessmentDispositionService().getHousingAssessmentDispositionById(housingAssessmentDispositionId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingAssessmentDispositions",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/housingassessmentdispositions",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_EXIT_HOUSINGASSESSMENTDISPOSITION",checkTrustedApp=true,checkSessionToken=true)
 	   public HousingAssessmentDispositions getAllEnrollmentHousingAssessmentDispositions(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable("exitid") UUID exitId, 
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -649,7 +649,7 @@ public class ClientsController extends ControllerBase {
 	   // Project Completion Status API
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectCompletionStatuss",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectcompletionstatuses",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_PROJECTCOMPLETIONSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public ProjectCompletionStatus createProjectCompletionStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId,@RequestBody ProjectCompletionStatus projectCompletionStatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -660,7 +660,7 @@ public class ClientsController extends ControllerBase {
 	         return returnProjectCompletionStatus;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectCompletionStatuss/{projectCompletionStatusid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectcompletionstatuses/{projectCompletionStatusid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_PROJECTCOMPLETIONSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateProjectCompletionStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "projectCompletionStatusid" ) UUID projectCompletionStatusId,@RequestBody ProjectCompletionStatus projectCompletionStatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -668,7 +668,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getProjectCompletionStatusService().updateProjectCompletionStatus(projectCompletionStatus,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectCompletionStatuss/{projectCompletionStatusid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectcompletionstatuses/{projectCompletionStatusid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_PROJECTCOMPLETIONSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteProjectCompletionStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , 
 			   @PathVariable("exitid") UUID exitId, @PathVariable( "projectCompletionStatusid" ) UUID projectCompletionStatusId,
@@ -680,7 +680,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectCompletionStatuss/{projectCompletionStatusid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectcompletionstatuses/{projectCompletionStatusid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_PROJECTCOMPLETIONSTATUS_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public ProjectCompletionStatus getProjectCompletionStatusById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId , @PathVariable("exitid") UUID exitId, @PathVariable( "projectCompletionStatusid" ) UUID projectCompletionStatusId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -688,7 +688,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getProjectCompletionStatusService().getProjectCompletionStatusById(projectCompletionStatusId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectCompletionStatuss",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/exits/{exitid}/projectcompletionstatuses",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_EXIT_PROJECTCOMPLETIONSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public ProjectCompletionStatuses getAllEnrollmentProjectCompletionStatuss(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable("exitid") UUID exitId, 
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -705,7 +705,7 @@ public class ClientsController extends ControllerBase {
 	   
 	   // IncomeAndSources API
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeAndSources",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeandsources",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_INCOMEANDSOURCE",checkTrustedApp=true,checkSessionToken=true)
 	   public IncomeAndSource createIncomeAndSource(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody IncomeAndSource incomeAndSource,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -716,7 +716,7 @@ public class ClientsController extends ControllerBase {
 	         return returnIncomeAndSource;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeAndSources/{incomeAndSourceid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeAndSourceid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_INCOMEANDSOURCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateIncomeAndSource(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "incomeAndSourceid" ) UUID incomeAndSourceId,@RequestBody IncomeAndSource incomeAndSource,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -724,7 +724,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getIncomeAndSourceService().updateIncomeAndSource(incomeAndSource,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeAndSources/{incomeAndSourceid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeAndSourceid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_INCOMEANDSOURCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteIncomeAndSource(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "incomeAndSourceid" ) UUID incomeAndSourceId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -735,7 +735,7 @@ public class ClientsController extends ControllerBase {
 	        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeAndSources/{incomeAndSourceid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeandsources/{incomeAndSourceid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_INCOMEANDSOURCE_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public IncomeAndSource getIncomeAndSourceById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "incomeAndSourceid" ) UUID incomeAndSourceId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -743,7 +743,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getIncomeAndSourceService().getIncomeAndSourceById(incomeAndSourceId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeAndSources",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/incomeandsources",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_INCOMEANDSOURCE",checkTrustedApp=true,checkSessionToken=true)
 	   public IncomeAndSources getAllEnrollmentIncomeAndSources(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -760,7 +760,7 @@ public class ClientsController extends ControllerBase {
 	   // HealthInsurance API 
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthInsurances",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthinsurances",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_HEALTHINSURANCE",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthInsurance createHealthInsurance(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody HealthInsurance healthInsurance,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -771,7 +771,7 @@ public class ClientsController extends ControllerBase {
 	         return returnHealthInsurance;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthInsurances/{healthInsuranceid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthinsurances/{healthInsuranceid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_HEALTHINSURANCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateHealthInsurance(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "healthInsuranceid" ) UUID healthInsuranceId,@RequestBody HealthInsurance healthInsurance,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -779,7 +779,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getHealthInsuranceService().updateHealthInsurance(healthInsurance,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthInsurances/{healthInsuranceid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthinsurances/{healthInsuranceid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_HEALTHINSURANCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteHealthInsurance(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "healthInsuranceid" ) UUID healthInsuranceId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -790,7 +790,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthInsurances/{healthInsuranceid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthinsurances/{healthInsuranceid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_HEALTHINSURANCE_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthInsurance getHealthInsuranceById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "healthInsuranceid" ) UUID healthInsuranceId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -798,7 +798,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getHealthInsuranceService().getHealthInsuranceById(healthInsuranceId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthInsurances",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthinsurances",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_HEALTHINSURANCE",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthInsurances getAllEnrollmentHealthInsurances(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -816,7 +816,7 @@ public class ClientsController extends ControllerBase {
 	   // Services API
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/servicess",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/services",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_SERVICES",checkTrustedApp=true,checkSessionToken=true)
 	   public Services createServices(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody Services services,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -827,7 +827,7 @@ public class ClientsController extends ControllerBase {
 	         return returnServices;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/servicess/{servicesid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/services/{servicesid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_SERVICES",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateServices(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "servicesid" ) UUID servicesId,@RequestBody Services services,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -835,7 +835,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getServicesService().updateServices(services,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/servicess/{servicesid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/services/{servicesid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_SERVICES",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteServices(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "servicesid" ) UUID servicesId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -846,7 +846,7 @@ public class ClientsController extends ControllerBase {
 	        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/servicess/{servicesid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/services/{servicesid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_SERVICES_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public Services getServicesById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "servicesid" ) UUID servicesId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -854,7 +854,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getServicesService().getServicesById(servicesId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/servicess",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/services",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_SERVICES",checkTrustedApp=true,checkSessionToken=true)
 	   public ServicesList getAllEnrollmentServicess(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -871,7 +871,7 @@ public class ClientsController extends ControllerBase {
 	   // Health Status API status
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthStatuses",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthstatuses",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_HEALTHSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthStatus createHealthStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody HealthStatus healthStatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -882,7 +882,7 @@ public class ClientsController extends ControllerBase {
 	        return returnHealthStatus;	        
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthStatuses/{healthStatusid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthStatusid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_HEALTHSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateHealthStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "healthStatusid" ) UUID healthStatusId,@RequestBody HealthStatus healthStatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -890,7 +890,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getHealthStatusService().updateHealthStatus(healthStatus,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthStatuses/{healthStatusid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthStatusid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_HEALTHSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteHealthStatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "healthStatusid" ) UUID healthStatusId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -901,7 +901,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthStatuses/{healthStatusid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthstatuses/{healthStatusid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_HEALTHSTATUS_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthStatus getHealthStatusById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "healthStatusid" ) UUID healthStatusId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -909,7 +909,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getHealthStatusService().getHealthStatusById(healthStatusId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthStatuses",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/healthstatuses",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_HEALTHSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public HealthStatuses getAllEnrollmentHealthStatuss(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -1036,7 +1036,7 @@ public class ClientsController extends ControllerBase {
 	  // Domestic Violence API 
 	   
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticViolences",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticviolences",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_DOMESTICVIOLENCE",checkTrustedApp=true,checkSessionToken=true)
 	   public DomesticViolence createDomesticViolence(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody DomesticViolence domesticViolence,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1047,7 +1047,7 @@ public class ClientsController extends ControllerBase {
 	         return returnDomesticViolence;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticViolences/{domesticViolenceid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticviolences/{domesticViolenceid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_DOMESTICVIOLENCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateDomesticViolence(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "domesticViolenceid" ) UUID domesticViolenceId,@RequestBody DomesticViolence domesticViolence,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1055,7 +1055,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getDomesticViolenceService().updateDomesticViolence(domesticViolence,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticViolences/{domesticViolenceid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticviolences/{domesticViolenceid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_DOMESTICVIOLENCE",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteDomesticViolence(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "domesticViolenceid" ) UUID domesticViolenceId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -1066,7 +1066,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticViolences/{domesticViolenceid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticviolences/{domesticViolenceid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_DOMESTICVIOLENCE_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public DomesticViolence getDomesticViolenceById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "domesticViolenceid" ) UUID domesticViolenceId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -1074,7 +1074,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getDomesticViolenceService().getDomesticViolenceById(domesticViolenceId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticViolences",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/domesticviolences",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_DOMESTICVIOLENCE",checkTrustedApp=true,checkSessionToken=true)
 	   public DomesticViolences getAllEnrollmentDomesticViolences(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -1314,7 +1314,7 @@ public class ClientsController extends ControllerBase {
 
 	   // School status API start
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuss",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuses",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_SCHOOLSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public Schoolstatus createSchoolstatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody Schoolstatus schoolstatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1325,7 +1325,7 @@ public class ClientsController extends ControllerBase {
 	         return returnSchoolstatus;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuss/{schoolstatusid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuses/{schoolstatusid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_SCHOOLSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateSchoolstatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "schoolstatusid" ) UUID schoolstatusId,@RequestBody Schoolstatus schoolstatus,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1333,7 +1333,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getSchoolstatusService().updateSchoolstatus(schoolstatus,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuss/{schoolstatusid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuses/{schoolstatusid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_SCHOOLSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteSchoolstatus(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 			   @PathVariable( "schoolstatusid" ) UUID schoolstatusId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -1344,7 +1344,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuss/{schoolstatusid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuses/{schoolstatusid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_SCHOOLSTATUS_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public Schoolstatus getSchoolstatusById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "schoolstatusid" ) UUID schoolstatusId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -1352,7 +1352,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getSchoolstatusService().getSchoolstatusById(schoolstatusId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuss",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/schoolstatuses",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_SCHOOLSTATUS",checkTrustedApp=true,checkSessionToken=true)
 	   public Schoolstatuses getAllEnrollmentSchoolstatuss(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
@@ -1591,7 +1591,7 @@ public class ClientsController extends ControllerBase {
 	   
 	   // Residentialmoveindates API start
 	   
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveindates",method=RequestMethod.POST)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveins",method=RequestMethod.POST)
 	   @APIMapping(value="CLIENT_API_CREATE_RESIDENTIALMOVEINDATE",checkTrustedApp=true,checkSessionToken=true)
 	   public Residentialmoveindate createResidentialmoveindate(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@RequestBody Residentialmoveindate residentialmoveindate,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1602,7 +1602,7 @@ public class ClientsController extends ControllerBase {
 	         return returnResidentialmoveindate;
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindateid}",method=RequestMethod.PUT)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveins/{residentialmoveindateid}",method=RequestMethod.PUT)
 	   @APIMapping(value="CLIENT_API_UPDATE_RESIDENTIALMOVEINDATE",checkTrustedApp=true,checkSessionToken=true)
 	   public void updateResidentialmoveindate(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "residentialmoveindateid" ) UUID residentialmoveindateId,@RequestBody Residentialmoveindate residentialmoveindate,HttpServletRequest request) throws Exception{
 	        Session session = sessionHelper.getSession(request); 
@@ -1610,7 +1610,7 @@ public class ClientsController extends ControllerBase {
 	        serviceFactory.getResidentialmoveindateService().updateResidentialmoveindate(residentialmoveindate,enrollmentId,session.getAccount().getUsername()); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindateid}",method=RequestMethod.DELETE)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveins/{residentialmoveindateid}",method=RequestMethod.DELETE)
 	   @APIMapping(value="CLIENT_API_DELETE_RESIDENTIALMOVEINDATE",checkTrustedApp=true,checkSessionToken=true)
 	   public void deleteResidentialmoveindate(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId,
 			   @PathVariable( "residentialmoveindateid" ) UUID residentialmoveindateId,HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -1621,7 +1621,7 @@ public class ClientsController extends ControllerBase {
 	         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveindates/{residentialmoveindateid}",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveins/{residentialmoveindateid}",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_RESIDENTIALMOVEINDATE_BY_ID",checkTrustedApp=true,checkSessionToken=true)
 	   public Residentialmoveindate getResidentialmoveindateById(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,@PathVariable( "residentialmoveindateid" ) UUID residentialmoveindateId,HttpServletRequest request) throws Exception{
 	         serviceFactory.getClientService().getClientById(clientId); 
@@ -1629,7 +1629,7 @@ public class ClientsController extends ControllerBase {
 	        return serviceFactory.getResidentialmoveindateService().getResidentialmoveindateById(residentialmoveindateId); 
 	   }
 
-	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveindates",method=RequestMethod.GET)
+	   @RequestMapping(value="/{clientid}/enrollments/{enrollmentid}/residentialmoveins",method=RequestMethod.GET)
 	   @APIMapping(value="CLIENT_API_GET_ALL_ENROLLMENT_RESIDENTIALMOVEINDATE",checkTrustedApp=true,checkSessionToken=true)
 	   public Residentialmoveindates getAllEnrollmentResidentialmoveindates(@PathVariable("clientid") UUID clientId, @PathVariable("enrollmentid") UUID enrollmentId ,
 	                       @RequestParam(value="startIndex", required=false) Integer startIndex, 
