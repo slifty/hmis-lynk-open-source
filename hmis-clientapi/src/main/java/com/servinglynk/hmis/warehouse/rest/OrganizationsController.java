@@ -35,6 +35,7 @@ public class OrganizationsController extends ControllerBase {
    @APIMapping(value="CLIENT_API_UPDATE_ORGANIZATION",checkTrustedApp=true,checkSessionToken=true)
    public void updateOrganization(@PathVariable( "organizationId" ) UUID organizationId,@RequestBody Organization organization,HttpServletRequest request) throws Exception{
         Session session = sessionHelper.getSession(request); 
+  		 organization.setOrganizationId(organizationId);
         serviceFactory.getOrganizationService().updateOrganization(organization,session.getAccount().getUsername()); 
    }
 

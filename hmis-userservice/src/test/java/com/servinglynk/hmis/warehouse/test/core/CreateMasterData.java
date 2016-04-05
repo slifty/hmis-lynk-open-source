@@ -13,7 +13,7 @@ public class CreateMasterData {
 	public Connection getConnection() throws Exception {
 		Class.forName("org.postgresql.Driver");
 	//return DriverManager.getConnection("jdbc:postgresql://hmisdb1.cvvhlvb3ryja.us-west-2.rds.amazonaws.com:5432/hmis?currentSchema=live", "hmisdb1", "hmisdb1234");
-		return DriverManager.getConnection("jdbc:postgresql://localhost:5432/hmis?currentSchema=live", "postgres", "postgres");
+		return DriverManager.getConnection("jdbc:postgresql://localhost:5432/hmis?currentSchema=v2014", "postgres", "postgres");
 		
 	}
 	
@@ -220,7 +220,7 @@ public class CreateMasterData {
 		CreateMasterData data=new CreateMasterData();
 		try{
 			
-			data.clearData();
+			/*data.clearData();
 			String id= data.createSuperAdminProfile();
 			UUID projectgroupid = data.createProjectGroup();
 			data.createSuperAdminACL(id);
@@ -236,14 +236,14 @@ public class CreateMasterData {
 			data.createProjects(orgId1);
 			UUID orgId2 = data.createOrganizations("Organization 2");
 			data.createProjects(orgId2);
-			data.createProjects(orgId2);
+			data.createProjects(orgId2);*/
 			//data.createHmisRedirectUri();
 //			UUID methodId =	data.createApiMethod();
 //			data.assignToAdmonProfile(methodId);	
 	
-		  /*  String[] methods = {"USR_CREATE_PROJECTGROUP","USR_UPDATE_ROJECTGROUP","USR_DELTEE_PROJECTGROUP","USR_GET_PROJECTGROUP_ID"};
+		    String[] methods = {"CLIENT_API_CREATE_PROJECTCOMPLETIONSTATUS","CLIENT_API_UPDATE_PROJECTCOMPLETIONSTATUS","CLIENT_API_DELETE_PROJECTCOMPLETIONSTATUS","CLIENT_API_GET_PROJECTCOMPLETIONSTATUS_BY_ID","CLIENT_API_GET_ALL_EXIT_PROJECTCOMPLETIONSTATUS"};
 
-		    String[] methodTypes = {"POST","PUT","DELETE","GET"};
+		    String[] methodTypes = {"POST","PUT","DELETE","GET","GET"};
 
 			int i=0;
 			while(i< methods.length){
@@ -251,14 +251,14 @@ public class CreateMasterData {
 			String methodName=methods[i];
 			String type = methodTypes[i];
 			UUID apiGroup =UUID.fromString("55269f08-273f-4f68-ae9b-f98467b4d091");
-			String query ="INSERT INTO live.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token) VALUES "
+			String query ="INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token) VALUES "
 											+"('"+pk+"', '"+methodName+"', '"+methodName+"', '"+methodName+"', '"+type+"',current_timestamp, 'MASTER DATA', '"+apiGroup+"', 0, TRUE)";
 			System.out.println(query+";");
 			i++;
 			}
 
 			
-			System.out.println(UUID.randomUUID()); */
+			System.out.println(UUID.randomUUID()); 
 			
 		}catch(Exception e){
 			e.printStackTrace();
