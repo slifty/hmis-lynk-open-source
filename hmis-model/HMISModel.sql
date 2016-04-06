@@ -3498,7 +3498,89 @@ INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type
 INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token) VALUES ('8b1d3bde-3020-4e8b-8da2-09a204d6e81f', 'CLIENT_API_DELETE_PROJECTCOMPLETIONSTATUS', 'CLIENT_API_DELETE_PROJECTCOMPLETIONSTATUS', 'CLIENT_API_DELETE_PROJECTCOMPLETIONSTATUS', 'DELETE',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
 INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token) VALUES ('16e81d72-5786-4877-a78b-82113d04a1cb', 'CLIENT_API_GET_PROJECTCOMPLETIONSTATUS_BY_ID', 'CLIENT_API_GET_PROJECTCOMPLETIONSTATUS_BY_ID', 'CLIENT_API_GET_PROJECTCOMPLETIONSTATUS_BY_ID', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
 INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token) VALUES ('4e5b7464-6494-4d37-933c-c7f25d3f54ab', 'CLIENT_API_GET_ALL_EXIT_PROJECTCOMPLETIONSTATUS', 'CLIENT_API_GET_ALL_EXIT_PROJECTCOMPLETIONSTATUS', 'CLIENT_API_GET_ALL_EXIT_PROJECTCOMPLETIONSTATUS', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_CREATE_AFFILIATION', 
+'CLIENT_API_CREATE_AFFILIATION',
+ 'CLIENT_API_CREATE_AFFILIATION', 'POST',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
 
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_GET_ALL_ENROLLMENT_AFFILIATION', 
+'CLIENT_API_GET_ALL_ENROLLMENT_AFFILIATION',
+ 'CLIENT_API_GET_ALL_ENROLLMENT_AFFILIATION', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_CREATE_FUNDER', 
+'CLIENT_API_CREATE_FUNDER',
+ 'CLIENT_API_CREATE_FUNDER', 'POST',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_GET_ALL_ENROLLMENT_FUNDER', 
+'CLIENT_API_GET_ALL_ENROLLMENT_FUNDER',
+ 'CLIENT_API_GET_ALL_ENROLLMENT_FUNDER', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_UPDATE_AFFILIATION', 
+'CLIENT_API_UPDATE_AFFILIATION',
+ 'CLIENT_API_UPDATE_AFFILIATION', 'PUT',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_GET_AFFILIATION_BY_ID', 
+'CLIENT_API_GET_AFFILIATION_BY_ID',
+ 'CLIENT_API_GET_AFFILIATION_BY_ID', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_DELETE_AFFILIATION', 
+'CLIENT_API_DELETE_AFFILIATION',
+ 'CLIENT_API_DELETE_AFFILIATION', 'DELETE',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_UPDATE_FUNDER', 
+'CLIENT_API_UPDATE_FUNDER',
+ 'CLIENT_API_UPDATE_FUNDER', 'PUT',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_GET_FUNDER_BY_ID', 
+'CLIENT_API_GET_FUNDER_BY_ID',
+ 'CLIENT_API_GET_FUNDER_BY_ID', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_DELETE_FUNDER', 
+'CLIENT_API_DELETE_FUNDER',
+ 'CLIENT_API_DELETE_FUNDER', 'DELETE',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_CREATE_CONNECTIONWITHSOAR', 
+'CLIENT_API_CREATE_CONNECTIONWITHSOAR',
+ 'CLIENT_API_CREATE_CONNECTIONWITHSOAR', 'POST',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_UPDATE_CONNECTIONWITHSOAR', 
+'CLIENT_API_UPDATE_CONNECTIONWITHSOAR',
+ 'CLIENT_API_UPDATE_CONNECTIONWITHSOAR', 'PUT',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_DELETE_CONNECTIONWITHSOAR', 
+'CLIENT_API_DELETE_CONNECTIONWITHSOAR',
+ 'CLIENT_API_DELETE_CONNECTIONWITHSOAR', 'DELETE',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
+
+INSERT INTO v2014.hmis_api_method(id,external_id,friendly_name, description,type,created_at,created_by,api_group_id,deprecated,requires_access_token)
+ VALUES ((SELECT uuid_in(md5(random()::text || now()::text)::cstring)),
+ 'CLIENT_API_GET_ALL_EXIT_CONNECTIONWITHSOARS', 
+'CLIENT_API_GET_ALL_EXIT_CONNECTIONWITHSOARS',
+ 'CLIENT_API_GET_ALL_EXIT_CONNECTIONWITHSOARS', 'GET',current_timestamp, 'MASTER DATA', '55269f08-273f-4f68-ae9b-f98467b4d091', 0, TRUE);
 
 
 CREATE SEQUENCE "live".seq_developer_company START 1;

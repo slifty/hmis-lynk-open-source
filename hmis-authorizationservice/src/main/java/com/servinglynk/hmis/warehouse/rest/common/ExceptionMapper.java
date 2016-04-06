@@ -20,7 +20,9 @@ import com.servinglynk.hmis.warehouse.core.model.exception.AccessDeniedException
 import com.servinglynk.hmis.warehouse.core.model.exception.IllegalBusinessStateException;
 import com.servinglynk.hmis.warehouse.core.model.exception.InvalidParameterException;
 import com.servinglynk.hmis.warehouse.core.model.exception.InvalidSessionTokenException;
+import com.servinglynk.hmis.warehouse.core.model.exception.InvalidTrustedAppException;
 import com.servinglynk.hmis.warehouse.core.model.exception.MissingParameterException;
+import com.servinglynk.hmis.warehouse.core.model.exception.TrustedAppNotFoundException;
 import com.servinglynk.hmis.warehouse.service.exception.AccountNotFoundException;
 import com.servinglynk.hmis.warehouse.service.exception.ApiMethodNotFoundException;
 import com.servinglynk.hmis.warehouse.service.exception.DeveloperCompanyAccountAlreadyExistsException;
@@ -45,6 +47,7 @@ public class ExceptionMapper {
 	public static final String ERR_CODE_DEVELOPER_COMPANY_ACCOUNT_ALREADY_EXISTS    = "DEVELOPER_COMPANY_ACCOUNT_ALREADY_EXISTS";
 	public static final String ERR_CODE_ACCOUNT_NOT_FOUND                           = "ACCOUNT_NOT_FOUND";	
 	public static final String ERR_CODE_SERVICE_NOT_FOUND                           = "SERVICE_NOT_FOUND";
+	public static final String ERR_CODE_TRUSTED_APP_NOT_FOUND                       = "TRUSTED_APP_NOT_FOUND";	
 	public static final String ERR_CODE_API_METHOD_NOT_FOUND                        = "API_METHOD_NOT_FOUND";	
 	public static final String ERR_CODE_SERVICE_ALREADY_EXISTS                      = "SERVICE_ALREADY_EXISTS";
 	public static final String ERR_CODE_DUPLICATE_DATA                      		= "DUPLICATE_DATA";
@@ -86,7 +89,13 @@ public class ExceptionMapper {
 			r.setErrorCode(ERR_CODE_INVALID_PARAMETER);
 			r.setErrorMessage(ex.getMessage());
 
-		} catch (AccessDeniedException ex) {
+		} catch (InvalidTrustedAppException ex) {
+			logger.info("InvalidParameterException: " + ex.getMessage(), ex);
+			r.setStatusCode(HttpServletResponse.SC_NOT_FOUND);
+			r.setErrorCode(ERR_CODE_INVALID_PARAMETER);
+			r.setErrorMessage(ex.getMessage());
+		} 
+		catch (AccessDeniedException ex) {
 
 			logger.info("AccessDeniedException: " + ex.getMessage(), ex);
 			r.setStatusCode(HttpServletResponse.SC_FORBIDDEN);
