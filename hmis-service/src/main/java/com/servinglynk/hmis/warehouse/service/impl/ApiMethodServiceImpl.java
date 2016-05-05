@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.servinglynk.hmis.warehouse.common.Constants;
 import com.servinglynk.hmis.warehouse.core.model.ApiMethod;
 import com.servinglynk.hmis.warehouse.core.model.ApiMethodGroups;
+import com.servinglynk.hmis.warehouse.core.model.exception.AccessDeniedException;
 import com.servinglynk.hmis.warehouse.model.v2014.ApiGroupEntity;
 import com.servinglynk.hmis.warehouse.model.v2014.ApiMethodEntity;
 import com.servinglynk.hmis.warehouse.model.v2014.DeveloperServiceEntity;
@@ -57,6 +58,17 @@ public class ApiMethodServiceImpl extends ServiceBase implements ApiMethodServic
 		
 		
 		
+	}
+	
+	@Transactional
+	public ApiMethod getApiMethod(String externalId){
+		ApiMethodEntity pApiMethod = daoFactory.getApiMethodDao().findByExternalId(externalId);
+		if(pApiMethod==null) throw new AccessDeniedException("api " + externalId + " not found");
+		ApiMethod apiMethod = new ApiMethod();
+		apiMethod.setApiMethodId(pApiMethod.getExternalId());
+		apiMethod.setRequiresAccessToken(pApiMethod.getRequiresAccessToken());
+		apiMethod.setRequiresCheckTrustedApp(pApiMethod.getRequiresCheckTrustedApp());
+		return apiMethod;		
 	}
 	
 	@Transactional

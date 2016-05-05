@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.servinglynk.hmis.warehouse.client.notificationservice.NotificationServiceClient;
 import com.servinglynk.hmis.warehouse.client.reportservice.ReportServiceClient;
-import com.servinglynk.hmis.warehouse.core.model.Notification;
-import com.servinglynk.hmis.warehouse.core.model.Recipients;
+import com.servinglynk.hmis.warehouse.client.model.Notification;
+import com.servinglynk.hmis.warehouse.client.model.Recipients;
 import com.servinglynk.hmis.warehouse.core.model.ReportHeader;
 import com.servinglynk.hmis.warehouse.core.model.ReportRequest;
 import com.servinglynk.hmis.warehouse.core.model.ReportResult;

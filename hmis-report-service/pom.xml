@@ -7,7 +7,7 @@
   <name>Report Service</name>
   <description>Report Service</description>
   	<properties>
-		<parent-version>0.0.1-SNAPSHOT</parent-version>
+		<parent-version>0.0.2-SNAPSHOT</parent-version>
 	</properties>
   
   
